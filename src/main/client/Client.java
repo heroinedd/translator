@@ -16,8 +16,9 @@ public class Client {
 
             Scanner scanner = new Scanner(System.in);
             String in = "";
-            while (!in.equalsIgnoreCase("exit")) {
+            while (true) {
                 in = scanner.nextLine();
+                if (in.equalsIgnoreCase("exit")) break;
                 String[] parts = in.split(" ");
                 System.out.println("Text: " + parts[0] + "\tSource Language: " + parts[1] + "\tTarget Language: " + parts[2]);
                 String result = stub.translate(parts[0], parts[1], parts[2]);
