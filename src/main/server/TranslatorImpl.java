@@ -8,7 +8,6 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Scanner;
 
@@ -49,12 +48,6 @@ public class TranslatorImpl implements TranslatorIntf {
             // Bind the remote object's stub in the registry
             LocateRegistry.createRegistry(1099);
             Naming.bind("Translator", stub);
-
-            Scanner scanner = new Scanner(System.in);
-            String input = "";
-            while (!input.equalsIgnoreCase("exit")) {
-                input = scanner.nextLine();
-            }
 
             System.err.println("Server ready");
         } catch (Exception e) {
